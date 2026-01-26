@@ -21,7 +21,7 @@ def main():
     code_bits = codec.encoder4bibo(info_bits)
 
     # 简单的BPSK+AWGN信道，输出P(b=0)
-    snr_db = 2.0
+    snr_db = 5.0
     rate = n_info / n_code
     snr_lin = 10 ** (snr_db / 10.0)
     sigma = np.sqrt(1.0 / (2.0 * snr_lin * rate))

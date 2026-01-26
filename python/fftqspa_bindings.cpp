@@ -26,8 +26,6 @@ PYBIND11_MODULE(fftqspa, m) {
 
 	py::class_<BCJRQSPA>(m, "BCJRQSPA")
 		.def(py::init<std::string, int, std::string>(), py::arg("parity_filename"), py::arg("max_iteration"), py::arg("mapping_filename"))
-		.def("get_block_length", &BCJRQSPA::get_block_length)
-		.def("get_total_length", &BCJRQSPA::get_total_length)
 		.def("info_bits_len", [](const BCJRQSPA &self) { return info_bits_len(self); })
 		.def("code_bits_len", [](const BCJRQSPA &self) { return code_bits_len(self); })
 		.def("encoder4bibo", [](BCJRQSPA &self, py::array_t<int, py::array::c_style | py::array::forcecast> info_bits) {

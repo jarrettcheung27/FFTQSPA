@@ -13,8 +13,6 @@ sources = [
     "../Random.cpp",
     "../Interleaver.cpp",
     "../FiniteField2.cpp",
-    "../Sourcesink.cpp",
-    "../SimulationPackage.cpp",
     "../util.cpp",
     "../Qary_Gauss_E.cpp",
     "../lsfr.cpp",

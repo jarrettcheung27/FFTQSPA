@@ -1,6 +1,0 @@
-The following result corresponding the input file : input_file_q_ary_2013.txt
-  SNR                         BER 
-The following result corresponding the input file : input_file_q_ary_2013.txt
-  SNR                         BER 
-2.2                 0.00895578
-2.6                 0.00146395
