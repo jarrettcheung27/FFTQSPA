@@ -495,10 +495,28 @@ void BCJRQSPA::re_encoder(int *m_uu, int *b_cc)
 //二进制输入，二进制输出的多元LDPC编码器。
 //*******************************多元码编码器*******************************
 void BCJRQSPA::encoder4BiBo(int* m_uu, int* b_cc)
+/**
+ * 函数的功能：
+ *   将输入的信息比特序列按 m_degree 位打包成 q-ary 符号（q_ary = 2^m_degree），
+ *   依据系统化编码矩阵计算校验符号生成码字，并将最终的 q-ary 码字再展开为二进制比特序列输出。
+ *
+ * 输入数据的内容及格式：
+ *   m_uu：
+ *     指向 int 数组的指针，输入为二进制序列（元素取 0/1），
+ *     长度应为 (parity_column - rank) * m_degree，对应信息部分比特。
+ *   b_cc：
+ *     指向 int 数组的指针，用于输出码字比特序列，
+ *     需至少可容纳 parity_column * m_degree 个元素（函数内部先写入 q-ary 符号，再展开为比特覆盖写回）。
+ *
+ * 输出数据的内容及格式：
+ *   b_cc（输出参数）：
+ *     输出为二进制码字序列，长度为 parity_column * m_degree；
+ *     第 j 个符号对应的比特为 b_cc[j*m_degree + ii] = (symbol >> ii) & 1。
+ */
 {
 	int temp_Q, i;
 	int parity_value = 0;
-//将m_uu由 二进制序列 转换为 多进制序列
+	//将m_uu由 二进制序列 转换为 多进制序列
 	for (int i = 0; i < this->parity_column - this->rank; i++)
 	{
 		temp_Q = 0;
@@ -1466,8 +1484,30 @@ int BCJRQSPA::FFTQSPA_FB(double *rr, int *uu, double sigma)
 //fft-qspa译码器：输入rr_bits_prob为比特概率
 //              ：输出uu_bit为译出的比特序列
 //*******************************多元码译码器*******************************
-int BCJRQSPA::FFTQSPA4BiBo(double* rr_bits_prob, int* uu_bit)
 
+int BCJRQSPA::FFTQSPA4BiBo(double* rr_bits_prob, int* uu_bit)
+/**
+ * 函数的功能：
+ *   基于 FFT-QSPA（频域/Hadamard 变换的 q-ary SPA）对由二进制比特组成的接收概率信息进行迭代译码。
+ *   先将每组 m_degree 个二进制比特的“取0概率”组合为一个 q-ary 符号的信道先验概率（q_ary = 2^m_degree），
+ *   然后在 Tanner 图上进行变量结点/校验结点消息传递更新（含归一化、截断、置换、变换等），
+ *   迭代直至满足校验（is_codeword）或达到最大迭代次数。最后将 q-ary 判决结果展开为二进制比特输出。
+ *
+ * 输入数据的内容及格式：
+ *   rr_bits_prob：
+ *     指向 double 数组的指针，长度应为 parity_column * m_degree。
+ *     rr_bits_prob[i*m_degree + j] 表示第 i 组（第 i 个 q-ary 符号对应的）第 j 个二进制比特取值为 0 的概率 P(b=0)。
+ *   uu_bit：
+ *     指向 int 数组的指针，要求至少可容纳 parity_column * m_degree 个元素（函数会写入）。
+ *     注意：在迭代过程中内部也会暂存每个符号的 q-ary 判决（uu_bit[j] = 符号值），结束前会展开覆盖为比特。
+ *
+ * 输出数据的内容及格式：
+ *   返回值：
+ *     实际执行的迭代次数 iter（若提前满足校验则为提前终止时的迭代计数，否则为 max_iteration）。
+ *   uu_bit（输出参数）：
+ *     写回译码后的二进制比特序列，长度为 parity_column * m_degree；
+ *     对于每个符号 j，uu_bit[j*m_degree + ii] 为该符号展开后的第 ii 位（(symbol >> ii) & 1）。
+ */
 {
 	double curr_sum = 0.0;
 	int i, q, j, bit_temp;
