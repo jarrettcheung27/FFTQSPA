@@ -1,0 +1,503 @@
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+5.25                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+8.25                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+2.2                 0.0764526
+2.6                 0.0108342
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+2.2                 0.0813008
+2.6                 0.0143513
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+4                 1
+4.4                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+3                 0.0124704
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+3                 0.961538
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+3                 0.990099
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+3                 0.990099
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+3                 0.588235
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+3.4                 0.438596
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+4                 0.724638
+4.4                 0.595238
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+9.5                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+9.5                 0.666667
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+9.5                 0.568182
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+9.5                 0.185529
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+9.5                 0.0228415
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+9.5                 0.990099
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+1.5                 1
+1.9                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+1.5                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+1.5                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+1.5                 1
+1.9                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+1.5                 1
+1.9                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+1.5                 1
+1.9                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+1.5                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+1.5                 1
+1.9                 1
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 

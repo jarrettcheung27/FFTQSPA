@@ -1,0 +1,32 @@
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+3.4                 6.95652e-005
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+1.4                 0.000123071

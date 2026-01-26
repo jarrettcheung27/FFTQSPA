@@ -1,0 +1,18 @@
+low bound of snr:
+10.53
+upper bound of snr:
+100.0
+snr step value:
+0.1
+maximum block number:
+100000000000
+maximum error number:
+100
+maximum_iteration_number of decoding:
+500
+code parameter file name:
+18_3_p29_16ary_CS.dat
+trellis_par_file
+SignalSet_16QAM.txt
+
+//end of file

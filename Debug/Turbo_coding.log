@@ -1,0 +1,26 @@
+﻿cl : 命令行 warning D9035: “Gm”选项已否决，并将在将来的版本中移除
+  SimulationPackage.cpp
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\util.h(171,7): warning C4838: 从“__int64”转换到“const int”需要收缩转换
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\util.h(175,1): warning C4305: “初始化”: 从“__int64”到“const int”截断
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\util.h(171,7): warning C4309: “初始化”: 截断常量值
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\util.h(172,7): warning C4838: 从“__int64”转换到“const int”需要收缩转换
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\util.h(172,7): warning C4309: “初始化”: 截断常量值
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\util.h(173,7): warning C4838: 从“__int64”转换到“const int”需要收缩转换
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\util.h(173,7): warning C4309: “初始化”: 截断常量值
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\util.h(174,7): warning C4838: 从“__int64”转换到“const int”需要收缩转换
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\util.h(174,7): warning C4309: “初始化”: 截断常量值
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(254,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(259,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(490,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(495,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(730,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(735,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(936,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(941,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(1178,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(1183,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(1356,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(1361,17): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(1214,77): warning C4101: “tempsum”: 未引用的局部变量
+C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\SimulationPackage.cpp(1213,16): warning C4101: “count”: 未引用的局部变量
+  Turbo_coding.vcxproj -> C:\Users\86134\Desktop\TeachResearch\Project\FFTQSPA\Debug\FFTQSPA.exe

@@ -1,0 +1,18 @@
+low bound of snr:
+4.6
+upper bound of snr:
+100.0
+snr step value:
+0.4
+maximum block number:
+100000000000
+maximum error number:
+100
+maximum_iteration_number of decoding:
+50
+code parameter file name:
+matrix.dat
+trellis_par_file
+SignalSet_BPSK-2.txt
+
+//end of file

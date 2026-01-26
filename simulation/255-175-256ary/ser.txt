@@ -1,0 +1,5 @@
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 
+3                 0.150936
+3.2                 0.0613674
+3.4                 0.0222607

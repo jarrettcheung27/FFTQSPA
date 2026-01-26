@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\nbldpc">
+      <UniqueIdentifier>{4ba51cef-aa8b-4dbd-8b0f-f324090ef692}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\FiniteField">
+      <UniqueIdentifier>{e203d941-8fef-49dd-9aea-746b45868297}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BCJRQSPA.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FiniteField2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Interleaver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="lsfr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Mapper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Qary_Gauss_E.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QaryLDPC.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Random.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimulationPackage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sourcesink.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BCJRQSPA.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FiniteField2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interleaver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LDPC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LDPC_COV.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Qary_Gauss_E.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QaryLDPC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Random.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Sourcesink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="lsfr.h">
+      <Filter>Header Files\nbldpc</Filter>
+    </ClInclude>
+    <ClInclude Include="EuclidAlgorithm.h">
+      <Filter>Header Files\FiniteField</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="generator.txt">
+      <Filter>Header Files\nbldpc</Filter>
+    </Text>
+    <Text Include="Basic_Galois_Field_Par.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ber.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Convc_Par_file_001.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="fer.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="input_file_1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="input_file_2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="input_file_3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="input_file_4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="input_file_5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="input_file_osmld_1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="input_file_q_ary_1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="LDPC_Nb_H_information_QC_120_GF16.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="osmld_bch_15_7.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="PR_Channel_par_001.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="q_ary_ldpc_par_1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="q_ary_ldpc_par_2.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="q_ary_ldpc_par_3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Tanner_Graph_par_001.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Tanner_Graph_par_002.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Trellis_par_file_1.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Trellis_par_file_3.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

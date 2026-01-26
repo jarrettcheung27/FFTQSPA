@@ -1,0 +1,19 @@
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 
+10.03                 6.04369e-006
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         SER 

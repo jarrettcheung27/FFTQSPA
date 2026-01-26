@@ -1,0 +1,20 @@
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+4                 0.00030316
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+3                 0.116822
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         FER 

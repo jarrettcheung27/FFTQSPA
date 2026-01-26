@@ -1,0 +1,21 @@
+low bound of snr:
+4.0
+upper bound of snr:
+15.2
+snr step value:
+0.4
+maximum block number:
+1000000000
+maximum error number:
+100
+maximum_iteration_number of decoding:
+50
+code parameter file name:
+2080_320_16ary.dat
+trellis_par_file
+SignalSet_BPSK-4.txt
+
+//end of file
+
+2080_325_16ary.dat
+4160_640_4ary.dat

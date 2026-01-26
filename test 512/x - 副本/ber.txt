@@ -1,0 +1,17 @@
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+10.03                 2.18592e-006
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+7.28                 0.00570696
+7.78                 0.000352072
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
+The following result corresponding the input file : input_file_q_ary_2013.txt
+  SNR                         BER 
