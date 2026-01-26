@@ -1209,6 +1209,9 @@ void simulation_qary()
 
 
 void simulation_qary_bibo()
+// 函数的功能：对二进制输入/二进制输出（BiBo）的LDPC译码链路进行蒙特卡洛仿真，在不同SNR下通过AWGN信道传输并统计BER，同时记录平均迭代次数及随机数发生器状态。
+// 输入数据的内容及格式：从文本参数文件“input_file_q_ary_2013.txt”中读取仿真参数（low_snr、max_snr、step、max_block_num、max_err_num、max_iteration、码/映射相关文件名等）；运行过程中由随机源产生长度为 m_infobit_len 的0/1比特序列作为信息比特。
+// 输出数据的内容及格式：将每个SNR点对应的BER追加写入“ber.txt”，将每个SNR点对应的平均迭代次数追加写入“iter.txt”；并在控制台输出当前帧计数、误帧计数、SNR、BER与平均迭代次数；同时输出随机数发生器状态到“rnd_state_0.txt”和“rnd_state_1.txt”。
 {
 	int flag = 0, count, value = 0;
 	double low_snr = 0.0, max_snr = 15.0, step = 0.2, var, sigma, temp0, temp1,tempsum;

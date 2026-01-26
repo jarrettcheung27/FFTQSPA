@@ -132,6 +132,8 @@ void BCJRQSPA::Malloc(string filename, string mapping_name)
 	temp_qary = new double[q_ary];
 	inds = new int[parity_column];
 	sym_inds = new int[parity_row];
+	m_bit_len_cc = parity_column * m_degree;
+	m_bit_len_info = (parity_column - rank) * m_degree;
 }
 
 
@@ -381,8 +383,8 @@ void BCJRQSPA::Sys()
 BCJRQSPA::~BCJRQSPA()
 {
 	int des;
-	std::cout<<"in destructor:";
-	std::cin>>des;
+	// std::cout<<"in destructor:";
+	// std::cin>>des;
 
 	for(int i = 0 ; i < this->parity_row ; i ++)
 	{

@@ -30,7 +30,9 @@ public:
 	bool is_codeword_sym(int *b_code);
 	int count_unsat(int *b_code);
 	int count_unsat_sym(int *b_code);
-
+	int m_bit_len_info;
+	int m_bit_len_cc;
+	
 
 private:
 	int parity_row;   //row number of the parity check matrix
@@ -69,8 +71,8 @@ public:
 
 
 	Tanner_Graph tanner;	
-	int m_degree;//GF(2^m)ÖÐµÄm
-	int bit_length_cc;//±àÂëºóµÄBITÁ÷µÄ³¤¶È
+	int m_degree;//GF(2^m)ï¿½Ðµï¿½m
+	int bit_length_cc;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½BITï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
 	int m_len_xx;
 
 	int FFTQSPA_FB(double *rr, int *uu, double sigma);
