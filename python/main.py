@@ -20,6 +20,12 @@ def main():
     # 编码
     code_bits = codec.encoder4bibo(info_bits)
 
+    #========================Inner code + DNA channel========================
+    """
+    将inner code和DNA存储信道视为一个复合信道
+    输入：k_1条LDPC码字的比特流
+    输出：k_1条LDPC码字的比特流的LLR
+    """
     # 简单的BPSK+AWGN信道，输出P(b=0)
     snr_db = 5.0
     rate = n_info / n_code
@@ -34,6 +40,9 @@ def main():
     # 计算P(b=0) (BPSK: 0->-1, 1->+1)
     # LLR = 2*y/sigma^2, p0 = 1/(1+exp(LLR))
     llr = 2.0 * y / (sigma ** 2)
+
+    #==================================================================
+
     rr_bits_prob = (1.0 / (1.0 + np.exp(llr))).astype(np.float64)
 
     # 译码
