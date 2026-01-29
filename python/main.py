@@ -9,7 +9,7 @@ def main():
     max_iteration = 50
     k_2 = 320  # inner code length of data bits
     # DNA channel parameters
-    Pe = 0.1  # base error rate
+    Pe = 0.01  # base error rate
     sequencingDepth = 10  # sequencing depth
     innerRedundancy = 114  # total redundancy for inner code
 
@@ -50,14 +50,14 @@ def main():
     llr = 2.0 * y / (sigma ** 2)
     '''
     #==================================================================
+    
+    # 使用inner code + DNA存储信道复合信道
+    # 输出voting scores 为多数投票得分, 也是就在一个簇中1的占比（约等于P(b=1)），loss sequence的得分为0.5。
     voting_scores = DNAChannel(code_bits, Pe, sequencingDepth, innerRedundancy)  # shape: (n_code, k_2)
-    # voting score to llr， 避免出现inf，将0和1分别映射为1e-3和1-1e-3
-    eps = 1e-3
-    voting_scores = np.clip(voting_scores, eps, 1 - eps)
-    llr = np.log((1.0 - voting_scores) / voting_scores)
-    #==================================================================
 
-    rr_bits_prob = (1.0 / (1.0 + np.exp(llr))).astype(np.float64)
+    #==================================================================
+    # 计算P(b=0)
+    rr_bits_prob =  1 - voting_scores  # P(b=0)
 
     # 分别对每一条码字进行译码
     decoded_bits = np.empty((n_code, k_2), dtype=np.uint8)
@@ -68,6 +68,7 @@ def main():
     # 分别系统化编码：信息位在码字末尾（前面是校验位）
     sys_start = n_code - n_info
     decoded_bits = decoded_bits[sys_start:,:]  # 信息位
+    
     # 计算误比特率(BER)和帧错误率(FER), 以decoded_bits[0, :]为1帧,及info_bits[0, :]为原始信息
     total_bit_errors = 0
     total_frame_errors = 0
