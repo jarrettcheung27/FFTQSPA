@@ -38,9 +38,10 @@ def main():
 
     #==================================================================
     
-    # voting score to llr
-
-
+    # voting score to llr， 避免出现inf，将0和1分别映射为1e-3和1-1e-3
+    eps = 1e-3
+    voting_scores = np.clip(voting_scores, eps, 1 - eps)
+    llr = np.log((1.0 - voting_scores) / voting_scores)
     rr_bits_prob = (1.0 / (1.0 + np.exp(llr))).astype(np.float64)
 
     # 分别对每一条码字进行译码
