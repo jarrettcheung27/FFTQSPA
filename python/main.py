@@ -1,6 +1,6 @@
 import numpy as np
 import fftqspa
-
+from Inner_Code_DNA_Channel_Simulation import DNAChannel
 
 def main():
     # code parameter file name
@@ -34,6 +34,7 @@ def main():
     """
 
     # 简单的BPSK+AWGN信道，输出P(b=0)
+    '''
     snr_db = 5.0
     rate = n_info / n_code
     snr_lin = 10 ** (snr_db / 10.0)
@@ -47,13 +48,13 @@ def main():
     # 计算P(b=0) (BPSK: 0->-1, 1->+1)
     # LLR = 2*y/sigma^2, p0 = 1/(1+exp(LLR))
     llr = 2.0 * y / (sigma ** 2)
-
-    # from Inner_Code_DNA_Channel_Simulation import DNAChannel
-    # voting_scores = DNAChannel(code_bits, Pe, sequencingDepth, innerRedundancy)  # shape: (n_code, k_2)
+    '''
+    #==================================================================
+    voting_scores = DNAChannel(code_bits, Pe, sequencingDepth, innerRedundancy)  # shape: (n_code, k_2)
     # voting score to llr， 避免出现inf，将0和1分别映射为1e-3和1-1e-3
-    # eps = 1e-3
-    # voting_scores = np.clip(voting_scores, eps, 1 - eps)
-    # llr = np.log((1.0 - voting_scores) / voting_scores)
+    eps = 1e-3
+    voting_scores = np.clip(voting_scores, eps, 1 - eps)
+    llr = np.log((1.0 - voting_scores) / voting_scores)
     #==================================================================
 
     rr_bits_prob = (1.0 / (1.0 + np.exp(llr))).astype(np.float64)
@@ -66,10 +67,18 @@ def main():
 
     # 分别系统化编码：信息位在码字末尾（前面是校验位）
     sys_start = n_code - n_info
-    bit_errors = np.count_nonzero(decoded_bits[sys_start:] != info_bits)
-
-    print(f"n_info={n_info}, n_code={n_code}")
-    print(f"iterations={iters}, bit_errors={bit_errors}")
+    decoded_bits = decoded_bits[sys_start:,:]  # 信息位
+    # 计算误比特率(BER)和帧错误率(FER), 以decoded_bits[0, :]为1帧,及info_bits[0, :]为原始信息
+    total_bit_errors = 0
+    total_frame_errors = 0
+    for i in range(n_info):
+        bit_errors = np.sum(decoded_bits[i, :] != info_bits[i, :])
+        total_bit_errors += bit_errors
+        if bit_errors > 0:
+            total_frame_errors += 1
+    BER = total_bit_errors / (n_info * k_2)
+    FER = total_frame_errors / n_info
+    print(f"BER: {BER}, FER: {FER}")
 
 if __name__ == "__main__":
     main()

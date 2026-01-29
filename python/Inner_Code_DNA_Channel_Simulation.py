@@ -76,7 +76,7 @@ def DNAChannel(CodeWrdsTx, Pe, sequencingDepth, innerRedundancy):
     global matlab_engine
     if 'matlab_engine' not in globals() or matlab_engine is None:
         matlab_engine = matlab.engine.start_matlab()
-        matlab_engine.cd(r'D:\DeSP-main', nargout=0)  # Set MATLAB working directory
+        matlab_engine.cd(r'./python/Encode', nargout=0)  # Set MATLAB working directory
     eng = matlab_engine
 
     print('BCH encoding...')
