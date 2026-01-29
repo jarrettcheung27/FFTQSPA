@@ -37,6 +37,7 @@ def DNAChannel(CodeWrdsTx, Pe, sequencingDepth, innerRedundancy):
     - innerRedundancy: The total redundancy allocated for the inner code.
     Output:
     - v_score: The voting scores after inner code decoding. Shape: (n_0, k_2)
+                for a loss sequence, the voting score for each bit is set to 0.5
     """
     loss_sequence_num = 0  # Number of lost sequences during the DNA storage channel
     ##=============Default Channel parameter=======
@@ -190,53 +191,22 @@ def DNAChannel(CodeWrdsTx, Pe, sequencingDepth, innerRedundancy):
                 segment_temp['data'].append(segment['data'])
         segments_temp.append(segment_temp)
     segments = segments_temp
-    for i, segment in enumerate(segments):
-        if segment['num'] == 0:
+    # calculate the voting score for each outer codeword: v_score = num_1 / (num_0 + num_1)
+    v_score = np.zeros((n_0, k_2), dtype=np.float64)
+    for segment in segments:
+        idx = segment['index']
+        num_reads = segment['num']
+        if num_reads == 0:
             loss_sequence_num += 1
-    return loss_sequence_num
+            v_score[idx, :] = 0.5  # For lost sequences, set voting score to 0.5
+        else:
+            vote_counts = np.zeros(k_2, dtype=np.int32)
+            for data_str in segment['data']:
+                for bit_pos in range(k_2):
+                    if data_str[bit_pos] == '1':
+                        vote_counts[bit_pos] += 1
+            v_score[idx, :] = vote_counts / num_reads
+    del segments, simu_indices_arr, simu_inf_arr
+    gc.collect()
+    return v_score
 
-def simulate(d_seq, repetition):
-    Pe_list = np.linspace(0.02, 0.2, 10)
-    # Pe_list = np.linspace(0.16, 0.2, 3)
-    # Pe_list = [0.1]
-    # sequencingDepth = [4,5,6,7,8]
-    innerRedundancy = 99
-    # repetition = 100 #1000
-    n_0 = 10000  # Number of inner codewords
-    k_2 = 320
-    numerical_result_path= "D:\\DeSP-main\\Data\\Cost_Optimization_result\\Fix_indexing_cost\\Figure\\Delta1_vs_PE\\"
-    # Initialize CSV file for numerical results
-    with open(numerical_result_path + f'Erasure_Prob_simu_d_{d_seq}.csv', mode='a', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerow(['Pe', 'erasure_probability'])
-    for Pe in Pe_list:
-        for _ in range(repetition): # Repeat the simulation for averaging
-            loss_sequence_num_sum = 0
-            # print(f'Simulating for Sequencing Depth: {d_seq}, Base Error Probability: {Pe}')
-            # Generate random codewords after outer code encoding
-            CodeWrdsTx = np.random.randint(0, 2, size=(n_0, k_2), dtype=np.uint8)
-
-            # Simulate DNA channel
-            loss_sequence_num = DNAChannel(CodeWrdsTx, Pe, d_seq, innerRedundancy)
-            loss_sequence_num_sum += loss_sequence_num
-            del CodeWrdsTx
-            gc.collect()  
-        # Calculate erasure probability
-        delta1 = loss_sequence_num_sum / (n_0 * repetition)
-        print(f'Erasure Probability: {delta1}\n')
-        # delta1_results.append(delta1)
-        # save numerical results to CSV
-        with open(numerical_result_path + f'Erasure_Prob_simu_d_{d_seq}.csv', mode='a', newline='') as file:
-            writer = csv.writer(file)
-            writer.writerow([Pe, delta1])
-            # Ensure MATLAB engine is closed to release memoryone
-        gc.collect()
-if __name__ == "__main__":
-    # argv[0] 是脚本名
-    if len(sys.argv) < 3:
-        print("Usage: python Inner_Code_DNA_Channel_Simulation.py <d_seq> <repetition>")
-        sys.exit(1)
-    d_seq = int(sys.argv[1])
-    repetition = int(sys.argv[2])
-    simulate(d_seq, repetition)
-    print("Completed !") 

@@ -1,6 +1,6 @@
 import numpy as np
 import fftqspa
-# from Inner_Code_DNA_Channel_Simulation import DNAChannel
+from Inner_Code_DNA_Channel_Simulation import DNAChannel
 
 
 def main():
@@ -9,6 +9,10 @@ def main():
     mapping_filename = "SignalSet_BPSK-4.txt"
     max_iteration = 50
     k_2 = 320  # inner code length of data bits
+    # DNA channel parameters
+    Pe = 0.1  # base error rate
+    sequencingDepth = 10  # sequencing depth
+    innerRedundancy = 114  # total redundancy for inner code
 
     codec = fftqspa.BCJRQSPA(parity_filename, max_iteration, mapping_filename)
 
@@ -26,25 +30,16 @@ def main():
     #========================Inner code + DNA channel========================
     """
     将inner code和DNA存储信道视为一个复合信道
-    输入：k_1条LDPC码字的比特流
-    输出：k_1条LDPC码字的比特流的LLR
+    输入：k_2条LDPC码字的比特流
+    输出：k_2条LDPC码字的比特流的LLR
     """
-    # 简单的BPSK+AWGN信道，输出P(b=0)
-    snr_db = 5.0
-    rate = n_info / n_code
-    snr_lin = 10 ** (snr_db / 10.0)
-    sigma = np.sqrt(1.0 / (2.0 * snr_lin * rate))
 
-    # BPSK: 0->-1, 1->+1
-    rr = np.where(code_bits == 0, -1.0, 1.0).astype(np.float64)
-    noise = rng.normal(0.0, 1.0, size=code_bits.shape)
-    y = rr + sigma * noise
-
-    # 计算P(b=0) (BPSK: 0->-1, 1->+1)
-    # LLR = 2*y/sigma^2, p0 = 1/(1+exp(LLR))
-    llr = 2.0 * y / (sigma ** 2)
+    voting_scores = DNAChannel(code_bits, Pe, sequencingDepth, innerRedundancy)  # shape: (n_code, k_2)
 
     #==================================================================
+    
+    # voting score to llr
+
 
     rr_bits_prob = (1.0 / (1.0 + np.exp(llr))).astype(np.float64)
 
