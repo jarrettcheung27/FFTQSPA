@@ -57,7 +57,8 @@ def DNAChannel(CodeWrdsTx, Pe, sequencingDepth, innerRedundancy):
     k_2 = 320  # length of data
     K = [k_1, k_2]
     r_i = innerRedundancy  # Total redundancy for inner code
-    r_1, r_2 = inner_redundancy(Pe, arg.seq_depth, arg.syn_number, N_c, r_i, K)
+    # r_1, r_2 = inner_redundancy(Pe, arg.seq_depth, arg.syn_number, N_c, r_i, K)
+    r_1, r_2 = 15, 99  # Pre-defined redundancy allocation
     print(f"Redundancy allocation for the inner code: ({r_1}, {r_2}).")
     # Parameters for BCH code lengths
     n_1 = k_1 + r_1  # Codeword length for index BCH code

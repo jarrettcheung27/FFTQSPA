@@ -9,8 +9,8 @@ def main():
     max_iteration = 50
     k_2 = 320  # inner code length of data bits
     # DNA channel parameters
-    Pe = 0.01  # base error rate
-    sequencingDepth = 10  # sequencing depth
+    Pe = 0.1  # base error rate
+    sequencingDepth = 5  # sequencing depth
     innerRedundancy = 114  # total redundancy for inner code
 
     codec = fftqspa.BCJRQSPA(parity_filename, max_iteration, mapping_filename)
@@ -23,6 +23,7 @@ def main():
     info_bits = rng.integers(0, 2, size=(n_info,k_2), dtype=np.uint8)
 
     # 分别对每一条信息比特进行编码
+    print("Q-ary LDPC encoding...")
     code_bits = np.empty((n_code, k_2), dtype=np.uint8)
     for i in range(k_2):
         code_bits[:, i] = codec.encoder4bibo(info_bits[:, i])
@@ -50,7 +51,7 @@ def main():
     llr = 2.0 * y / (sigma ** 2)
     '''
     #==================================================================
-    
+
     # 使用inner code + DNA存储信道复合信道
     # 输出voting scores 为多数投票得分, 也是就在一个簇中1的占比（约等于P(b=1)），loss sequence的得分为0.5。
     voting_scores = DNAChannel(code_bits, Pe, sequencingDepth, innerRedundancy)  # shape: (n_code, k_2)
@@ -60,6 +61,7 @@ def main():
     rr_bits_prob =  1 - voting_scores  # P(b=0)
 
     # 分别对每一条码字进行译码
+    print("Q-ary LDPC decoding...")
     decoded_bits = np.empty((n_code, k_2), dtype=np.uint8)
     iters = np.empty(k_2, dtype=int)
     for i in range(k_2):
