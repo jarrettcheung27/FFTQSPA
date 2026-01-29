@@ -1,6 +1,5 @@
 import numpy as np
 import fftqspa
-from Inner_Code_DNA_Channel_Simulation import DNAChannel
 
 
 def main():
@@ -34,14 +33,29 @@ def main():
     输出：k_2条LDPC码字的比特流的LLR
     """
 
-    voting_scores = DNAChannel(code_bits, Pe, sequencingDepth, innerRedundancy)  # shape: (n_code, k_2)
+    # 简单的BPSK+AWGN信道，输出P(b=0)
+    snr_db = 5.0
+    rate = n_info / n_code
+    snr_lin = 10 ** (snr_db / 10.0)
+    sigma = np.sqrt(1.0 / (2.0 * snr_lin * rate))
 
-    #==================================================================
-    
+    # BPSK: 0->-1, 1->+1
+    rr = np.where(code_bits == 0, -1.0, 1.0).astype(np.float64)
+    noise = rng.normal(0.0, 1.0, size=code_bits.shape)
+    y = rr + sigma * noise
+
+    # 计算P(b=0) (BPSK: 0->-1, 1->+1)
+    # LLR = 2*y/sigma^2, p0 = 1/(1+exp(LLR))
+    llr = 2.0 * y / (sigma ** 2)
+
+    # from Inner_Code_DNA_Channel_Simulation import DNAChannel
+    # voting_scores = DNAChannel(code_bits, Pe, sequencingDepth, innerRedundancy)  # shape: (n_code, k_2)
     # voting score to llr， 避免出现inf，将0和1分别映射为1e-3和1-1e-3
-    eps = 1e-3
-    voting_scores = np.clip(voting_scores, eps, 1 - eps)
-    llr = np.log((1.0 - voting_scores) / voting_scores)
+    # eps = 1e-3
+    # voting_scores = np.clip(voting_scores, eps, 1 - eps)
+    # llr = np.log((1.0 - voting_scores) / voting_scores)
+    #==================================================================
+
     rr_bits_prob = (1.0 / (1.0 + np.exp(llr))).astype(np.float64)
 
     # 分别对每一条码字进行译码
