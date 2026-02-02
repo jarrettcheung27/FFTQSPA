@@ -57,7 +57,7 @@ DEFAULT_DIC = {
     'syn_del_prob': 0,
 
     'decay_er': 0,
-    'decay_loss_rate': 0.3,
+    'decay_loss_rate': 0,
 
     'pcrc': 2,
     'pcrp':0.9,

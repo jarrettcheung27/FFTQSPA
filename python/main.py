@@ -4,14 +4,16 @@ from Inner_Code_DNA_Channel_Simulation import DNAChannel
 
 def main():
     # code parameter file name
-    parity_filename = "2080_320_16ary.dat"
-    mapping_filename = "SignalSet_BPSK-4.txt"
+    # parity_filename = "2080_320_16ary.dat"
+    # parity_filename = "2080_320_16ary2.dat"
+    parity_filename = "4160_640_4ary.dat"
+    mapping_filename = "SignalSet_BPSK-2.txt"
     max_iteration = 50
     k_2 = 320  # inner code length of data bits
     # DNA channel parameters
     PEs = np.linspace(0.07, 0.12, 11)  # different base error rates
     
-    sequencingDepth = 5  # sequencing depth
+    sequencingDepth = 10  # sequencing depth
     innerRedundancy = 114  # total redundancy for inner code
 
     codec = fftqspa.BCJRQSPA(parity_filename, max_iteration, mapping_filename)
@@ -90,7 +92,7 @@ def main():
         import os
         if not os.path.exists('results'):
             os.makedirs('results')
-        results_filename = f'results/FFTQSPA_DNA_Channel_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv'
+        results_filename = f'results/FFTQSPA_DNA_Channel_4-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv'
         if not os.path.isfile(results_filename):
             with open(results_filename, 'w') as f:
                 f.write('Pe,FER\n')
