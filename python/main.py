@@ -8,11 +8,11 @@ def main():
     # parity_filename = "2080_320_16ary2.dat"
     parity_filename = "4160_640_4ary.dat"
     mapping_filename = "SignalSet_BPSK-2.txt"
-    max_iteration = 50
+    max_iteration = 10
     k_2 = 320  # inner code length of data bits
     # DNA channel parameters
-    PEs = np.linspace(0.07, 0.12, 11)  # different base error rates
-    
+    PEs = np.linspace(0.07, 0.09, 3)  # different base error rates
+    # PEs = [0,0,0,0]
     sequencingDepth = 10  # sequencing depth
     innerRedundancy = 114  # total redundancy for inner code
 
@@ -55,7 +55,7 @@ def main():
         # LLR = 2*y/sigma^2, p0 = 1/(1+exp(LLR))
         llr = 2.0 * y / (sigma ** 2)
         '''
-        #==================================================================
+        #=========================Inner code + DNA channel=========================
 
         # 使用inner code + DNA存储信道复合信道
         # 输出voting scores 为多数投票得分, 也是就在一个簇中1的占比（约等于P(b=1)），loss sequence的得分为0.5。
@@ -63,6 +63,11 @@ def main():
         #==================================================================
         # 计算P(b=0)
         rr_bits_prob =  1 - voting_scores  # P(b=0)
+
+        # 为rr_bits_prob加一个微小值，防止出现0或1的概率，导致LLR无穷大
+        epsilon = 1e-5
+        rr_bits_prob = np.clip(rr_bits_prob, epsilon, 1 - epsilon)
+
 
         # 分别对每一条码字进行译码
         print("Q-ary LDPC decoding...")
@@ -92,7 +97,7 @@ def main():
         import os
         if not os.path.exists('results'):
             os.makedirs('results')
-        results_filename = f'results/FFTQSPA_DNA_Channel_4-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv'
+        results_filename = f'results/FFTQSPA_DNA_Channel_4-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}_test.csv'
         if not os.path.isfile(results_filename):
             with open(results_filename, 'w') as f:
                 f.write('Pe,FER\n')

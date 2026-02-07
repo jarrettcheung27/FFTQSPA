@@ -52,7 +52,7 @@ DEFAULT_DIC = {
     'syn_pcrc': 2,
     'syn_pcrp': 0.8,
     'syn_performPCR': False,
-    'syn_sub_prob': 0.001, # total: 0.004
+    'syn_sub_prob': 0, # total: 0.004
     'syn_ins_prob': 0,
     'syn_del_prob': 0,
 

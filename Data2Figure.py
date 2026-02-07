@@ -260,12 +260,14 @@ class Date2Figure:
         :param Graphical_result_path: output figure file path
         """
         df = pd.read_csv(numeric_result_path)
+        # ascending order sort by Pe
+        df = df.sort_values(by='Pe')
         Pe_values = df['Pe']
         FER_values = df['FER']
         
         plt.figure(figsize=(8, 6))
         plt.semilogy(Pe_values, FER_values, marker='o', linestyle='-', color='#EE5940', markersize=6,
-                     markerfacecolor='none', label = 'Qary LDPC + TL-BCH, $d_{seq}=10$')
+                     markerfacecolor='none', label = '2-ary LDPC + TL-BCH, $d_{seq}=10$')
         plt.xlabel('Overall error probability, $P_e$', fontsize=14)
         plt.ylabel('Frame Error Rate (FER)', fontsize=14)
         plt.xticks(fontsize=14)  # Set font size for x-axis ticks
@@ -278,6 +280,6 @@ class Date2Figure:
 #============================main====================================#
 sequencingDepth = 10
 innerRedundancy = 114
-numeric_result_path = f"results/FFTQSPA_DNA_Channel_16-ary2_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv"
-Graphical_result_path = "D:/Projects/FFTQSPA/results/FER_vs_Pe_16-ary2.png"
+numeric_result_path = f"results/FFTQSPA_DNA_Channel_2-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv"
+Graphical_result_path = "D:/Projects/FFTQSPA/results/FER_vs_Pe_2-ary.png"
 Date2Figure.plot_FER_vs_PE(numeric_result_path, Graphical_result_path)
