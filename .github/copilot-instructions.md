@@ -1,7 +1,9 @@
 # Copilot Instructions for FFTQSPA Project
 
 ## Project Purpose
-This repository implements a **q-ary LDPC codec** with **FFT-QSPA decoding** in C++, and exposes the core encoder/decoder to Python via `pybind11`.
+This repository implements a **q-ary LDPC codec** with **FFT-QSPA decoding** in C++, and exposes the core encoder/decoder to Python via `pybind11`. 
+The project also includes a simulation pipeline for evaluating the codec's performance over a DNA storage channel to compare the q-ary LDPC code with the 5G NR binary LDPC code, with results output in CSV format for BER/FER analysis. 
+Then results can be plotted using the #`Data2Figure.py` script.
 
 Typical workflow in this repo:
 1. Build/load `fftqspa` Python extension from C++ sources.
@@ -10,6 +12,7 @@ Typical workflow in this repo:
 4. Simulate channel outputs (AWGN or DNA channel pipeline).
 5. Decode using FFT-QSPA (`decode4bibo`) with bit probabilities `P(bit=0)`.
 6. Compute BER/FER and persist CSV results.
+7. Plot results with `Data2Figure.py` or similar.
 
 ---
 
@@ -57,6 +60,13 @@ Typical workflow in this repo:
 
 - `python/Inner_Code_DNA_Channel_Simulation.py`
   - End-to-end inner-code + DNA-storage-channel pipeline.
+  - The DNA channel model includes:
+    - Synthesis stage with dropout and bias.
+    - PCR amplification with bias and stochasticity.
+    - Decay stage with dropout.
+    - Sampling stage with random sampling of reads.
+    - Sequencing stage with substitution errors.
+  - Some of the Channel parameters are currently hardcoded in `main.py` and passed to `DNAChannel(...)`. Other Channel are listed in `python/Model/config.py`.
   - Calls MATLAB BCH encoder/decoder scripts under `python/Encode/`.
 
 ---
