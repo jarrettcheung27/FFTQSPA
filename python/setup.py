@@ -7,6 +7,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 
 sources = [
     "fftqspa_bindings.cpp",
+    "bch_codec.cpp",
     "../BCJRQSPA.cpp",
     "../QaryLDPC.cpp",
     "../Mapper.cpp",

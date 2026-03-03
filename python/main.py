@@ -1,4 +1,12 @@
+import sys
+from pathlib import Path
 import numpy as np
+
+_PY_DIR = Path(__file__).resolve().parent
+_BUILD_LIB = _PY_DIR / 'build' / f'lib.win-amd64-cpython-{sys.version_info.major}{sys.version_info.minor}'
+if _BUILD_LIB.exists():
+    sys.path.insert(0, str(_BUILD_LIB))
+
 import fftqspa
 from Inner_Code_DNA_Channel_Simulation import DNAChannel
 import os

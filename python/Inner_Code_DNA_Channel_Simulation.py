@@ -6,10 +6,18 @@ from Model.Model import *
 from Model.config import DEFAULT_PASSER
 
 from Encode.Helper_Functions import bin_to_dna, int_to_binary_array, inner_redundancy
+import sys
+from pathlib import Path
+
+_PY_DIR = Path(__file__).resolve().parent
+_BUILD_LIB = _PY_DIR / 'build' / f'lib.win-amd64-cpython-{sys.version_info.major}{sys.version_info.minor}'
+if _BUILD_LIB.exists():
+    sys.path.insert(0, str(_BUILD_LIB))
+
+import fftqspa
 
 import matplotlib.pyplot as plt
 import csv
-import matlab.engine
 
 import numpy as np
 import logging
@@ -23,9 +31,6 @@ warnings.filterwarnings("ignore")
 logging.getLogger().setLevel(logging.CRITICAL)
 plt.rcParams['figure.dpi'] = 300
 np.set_printoptions(threshold=np.inf)
-
-# Global variable to hold the persistent MATLAB engine
-global matlab_engine
 
 def DNAChannel(CodeWrdsTx, Pe, sequencingDepth, innerRedundancy):
     """
@@ -72,18 +77,11 @@ def DNAChannel(CodeWrdsTx, Pe, sequencingDepth, innerRedundancy):
     for idx in range(n_0):
         ids[idx] = int_to_binary_array(idx, k_1)
 
-    ##================Two layer BCH encode in MATLAB module=================
-    # Ensure the MATLAB engine is started only once
-    global matlab_engine
-    if 'matlab_engine' not in globals() or matlab_engine is None:
-        matlab_engine = matlab.engine.start_matlab()
-        matlab_engine.cd(r'./python/Encode', nargout=0)  # Set MATLAB working directory
-    eng = matlab_engine
-
+    ##================Two layer BCH encode in C++ module=================
     print('BCH encoding...')
-    cwr_ids = eng.BCH_Encoder(n_1, k_1, n_0, ids)
+    cwr_ids = fftqspa.bch_encode(n_1, k_1, ids.astype(np.int32))
     CodeWrdsTx = np.array(CodeWrdsTx, dtype=np.uint8)
-    cwr_data = eng.BCH_Encoder(n_2, k_2, n_0, CodeWrdsTx)
+    cwr_data = fftqspa.bch_encode(n_2, k_2, CodeWrdsTx.astype(np.int32))
     cwr2 = np.concatenate((cwr_ids, cwr_data), axis=1)
     del ids, CodeWrdsTx, cwr_ids, cwr_data
     gc.collect()
@@ -159,55 +157,19 @@ def DNAChannel(CodeWrdsTx, Pe, sequencingDepth, innerRedundancy):
     simu_indices_arr = np.array(index_bin_arrays)
     simu_inf_arr = np.array(inf_bin_arrays)
 
-    ##===============Two-layer BCH decode=============================
+    ##===============Two-layer BCH decode + voting=============================
     print('BCH decoding...')
-    rx_cwr_ids = eng.BCH_Decoder(n_1, k_1, len(dnas_sim_result), simu_indices_arr)
-    rx_cwr_data = eng.BCH_Decoder(n_2, k_2, len(dnas_sim_result), simu_inf_arr)
-    # Note: We do not call eng.quit() here, so the MATLAB engine persists.
-    segments_temp = []
-    for id in rx_cwr_ids:
-        segment_temp = ''.join(str(int(s)) for s in id[1:])
-        segments_temp.append(segment_temp)
-    indices_dec_str = segments_temp
-    segments_temp = []
-    for data in rx_cwr_data:
-        segment_temp = ''.join(str(int(s)) for s in data[1:])
-        segments_temp.append(segment_temp)
-    inf_bit_dec_str = segments_temp
-
-    segments_temp = []
-    for i, inf_bit in enumerate(inf_bit_dec_str):
-        segment_temp = dict(index=0, num=0, data='')
-        segment_temp['index'] = int(indices_dec_str[i], 2)
-        segment_temp['data'] = inf_bit
-        segments_temp.append(segment_temp)
-    segments = segments_temp
-    segments_temp = []
-    for i in range(n_0):
-        segment_temp = dict(index=0, num=0, data=[])
-        segment_temp['index'] = i
-        for segment in segments:
-            if segment['index'] == i and len(segment['data']) == k_2:
-                segment_temp['num'] += 1
-                segment_temp['data'].append(segment['data'])
-        segments_temp.append(segment_temp)
-    segments = segments_temp
-    # calculate the voting score for each outer codeword: v_score = num_1 / (num_0 + num_1)
-    v_score = np.zeros((n_0, k_2), dtype=np.float64)
-    for segment in segments:
-        idx = segment['index']
-        num_reads = segment['num']
-        if num_reads == 0:
-            loss_sequence_num += 1
-            v_score[idx, :] = 0.5  # For lost sequences, set voting score to 0.5
-        else:
-            vote_counts = np.zeros(k_2, dtype=np.int32)
-            for data_str in segment['data']:
-                for bit_pos in range(k_2):
-                    if data_str[bit_pos] == '1':
-                        vote_counts[bit_pos] += 1
-            v_score[idx, :] = vote_counts / num_reads
-    del segments, simu_indices_arr, simu_inf_arr
+    v_score = fftqspa.bch_decode_and_vote(
+        n_1,
+        k_1,
+        n_2,
+        k_2,
+        n_0,
+        simu_indices_arr.astype(np.int32),
+        simu_inf_arr.astype(np.int32),
+    )
+    loss_sequence_num = int(np.sum(np.all(v_score == 0.5, axis=1)))
+    del simu_indices_arr, simu_inf_arr
     gc.collect()
     return v_score
 
