@@ -267,7 +267,7 @@ class Date2Figure:
         
         plt.figure(figsize=(8, 6))
         plt.semilogy(Pe_values, FER_values, marker='o', linestyle='-', color='#EE5940', markersize=6,
-                     markerfacecolor='none', label = '16-ary LDPC + TL-BCH, $d_{seq}=20$')
+                     markerfacecolor='none', label = f'{CODE_ARY}-ary LDPC + TL-BCH, $d_{{seq}}=15$')
         plt.xlabel('Overall error probability, $P_e$', fontsize=14)
         plt.ylabel('Frame Error Rate (FER)', fontsize=14)
         plt.xticks(fontsize=14)  # Set font size for x-axis ticks
@@ -278,8 +278,9 @@ class Date2Figure:
         plt.savefig(Graphical_result_path, bbox_inches='tight', format='png')
         # plt.show()
 #============================main====================================#
-sequencingDepth = 20
-innerRedundancy = 114
-numeric_result_path = f"results/FFTQSPA_DNA_Channel_16-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv"
-Graphical_result_path = f"D:/Projects/FFTQSPA/results/FER_vs_Pe_16-ary_dseq{sequencingDepth}.png"
+sequencingDepth = 15
+innerRedundancy = 114 
+CODE_ARY = 16  # 2 for 2-ary LDPC, 4 for 4-ary LDPC， 16 for 16-ary LDPC 
+numeric_result_path = f"results/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv"
+Graphical_result_path = f"D:/Projects/FFTQSPA/results/FER_vs_Pe_{CODE_ARY}-ary_dseq{sequencingDepth}.png"
 Date2Figure.plot_FER_vs_PE(numeric_result_path, Graphical_result_path)

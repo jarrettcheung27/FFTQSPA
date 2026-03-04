@@ -12,18 +12,36 @@ from Inner_Code_DNA_Channel_Simulation import DNAChannel
 import os
 import csv
 
+CODE_PARM = 8  # i for 2^i-ary LDPC, i=1, 2, 4 for 2-ary, 4-ary, 16-ary respectively
+CODE_ARY = 2 ** CODE_PARM
+Parity_files_folder = "Parity_files_2048"
 def main():
     # code parameter file name
-    parity_filename = "2080_320_16ary.dat"
-    # parity_filename = "2080_320_16ary2.dat"
-    mapping_filename = "SignalSet_BPSK-4.txt"
+    if CODE_PARM == 1:
+        parity_filename = f"{Parity_files_folder}/8320_1280_2ary.dat"
+        mapping_filename = "Mapping_files/SignalSet_BPSK-1.txt"
+    elif CODE_PARM == 2:
+        parity_filename = f"{Parity_files_folder}/4160_640_4ary.dat"
+        mapping_filename = "Mapping_files/SignalSet_BPSK-2.txt"
+    elif CODE_PARM == 4:
+        parity_filename = f"{Parity_files_folder}/2080_320_16ary.dat"
+        mapping_filename = "Mapping_files/SignalSet_BPSK-4.txt"
+    elif CODE_PARM == 5:
+        parity_filename = f"{Parity_files_folder}/1664_256_32ary.dat"
+        mapping_filename = "Mapping_files/SignalSet_BPSK-5.txt"
+    elif CODE_PARM == 8:
+        parity_filename = f"{Parity_files_folder}/1040_160_256aryCode12.dat"
+        mapping_filename = "Mapping_files/SignalSet_BPSK-8.txt"
+    else:
+        raise ValueError(f"Unsupported CODE_ARY: {CODE_ARY}")
     max_iteration = 10
     k_2 = 320  # inner code length of data bits
     # DNA channel parameters
-    PEs = np.linspace(0.05, 0.12, 8)  # different base error rates
+    # PEs = np.linspace(0.05, 0.12, 8)  # different base error rates
+    PEs = [0.08]
     sequencingDepths = [15]  # sequencing depth list
     innerRedundancy = 114  # total redundancy for inner code
-    repeat_times = 10  # repeat simulation times for each sequencing depth
+    repeat_times = 20  # repeat simulation times for each sequencing depth
 
     codec = fftqspa.BCJRQSPA(parity_filename, max_iteration, mapping_filename)
 
@@ -34,8 +52,8 @@ def main():
         os.makedirs('results')
 
     for sequencingDepth in sequencingDepths:
-        runs_filename = f'results/FFTQSPA_DNA_Channel_16-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}_runs.csv'
-        results_filename = f'results/FFTQSPA_DNA_Channel_16-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv'
+        runs_filename = f'results/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}_runs.csv'
+        results_filename = f'results/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv'
 
         with open(runs_filename, 'w', newline='') as f:
             writer = csv.writer(f)
