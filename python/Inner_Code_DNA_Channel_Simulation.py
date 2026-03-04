@@ -47,11 +47,20 @@ def DNAChannel(CodeWrdsTx, Pe, sequencingDepth, innerRedundancy):
     loss_sequence_num = 0  # Number of lost sequences during the DNA storage channel
     ##=============Default Channel parameter=======
     arg = DEFAULT_PASSER
-    arg.syn_number = 30  # Synthesis number
+    arg.syn_number = 10  # Synthesis number
+    arg.syn_yield = 1
+    arg.syn_sub_prob = 0.57 * PE / 6
+    arg.syn_ins_prob = 0
+    arg.syn_del_prob = 0
+
+    arg.decay_er = 0
     arg.decay_loss_rate = 0.43 * Pe
+
     arg.pcrc = 2  # PCR cycle number
-    arg.pcrp = 0.9  # PCR efficiency
-    ps_seq = 0.57 * Pe / 3  # 测序阶段单向替换概率
+    arg.pcrp = 0.8  # PCR efficiency
+    arg.pcrBias = 0.05
+    
+    ps_seq = 0.57 * Pe / 6  # 测序阶段单向替换概率
     arg.seq_TM = genTm(ps_seq)
     arg.seq_depth = sequencingDepth  # Sequencing Depth
     N_c = np.ceil((2 * arg.pcrp) ** (arg.pcrc))  # The copy times during PCR
