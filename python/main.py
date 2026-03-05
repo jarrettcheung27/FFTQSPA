@@ -38,7 +38,7 @@ def main():
     k_2 = 320  # inner code length of data bits
     # DNA channel parameters
     # PEs = np.linspace(0.05, 0.12, 8)  # different base error rates
-    PEs = [0.08]
+    PEs = [0.12]
     sequencingDepths = [15]  # sequencing depth list
     innerRedundancy = 114  # total redundancy for inner code
     repeat_times = 20  # repeat simulation times for each sequencing depth
