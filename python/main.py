@@ -14,7 +14,7 @@ import csv
 
 CODE_PARM = 4  # i for 2^i-ary LDPC, i=1, 2, 4 for 2-ary, 4-ary, 16-ary respectively
 CODE_ARY = 2 ** CODE_PARM
-CODE_LEN = 2048
+CODE_LEN = 8320
 Parity_files_folder = f"Parity_files_{CODE_LEN}"
 def main():
     if Parity_files_folder == "Parity_files_8320":
@@ -69,7 +69,7 @@ def main():
         os.makedirs('results')
 
     for sequencingDepth in sequencingDepths:
-        runs_filename = f'results/codelen_{CODE_LEN}/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}_runs_test3.csv'
+        runs_filename = f'results/codelen_{CODE_LEN}/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}_runs_test.csv'
         results_filename = f'results/codelen_{CODE_LEN}/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}_test.csv'
 
         with open(runs_filename, 'w', newline='') as f:
@@ -119,6 +119,39 @@ def main():
                 sys_start = n_code - n_info
                 decoded_bits = decoded_bits[sys_start:, :]  # 信息位
 
+                # Debug
+                # 打印出出错的比特在 LDPC 译码时的帧的位置，以及迭代次数。                
+                error_positions = []
+                error_iters = []
+                # 将decoded_bits转置为 (k_2, n_info)，每行对应一帧的解码结果，方便分析LDPC 译码情况
+                info_bits_T = info_bits.T  # shape: (k_2, n_info)
+                decoded_bits_T = decoded_bits.T  # shape: (k_2, n_info)
+                for i in range(k_2):
+                    bit_errors = np.sum(decoded_bits_T[i, :] != info_bits_T[i, :])
+                    if bit_errors > 0:
+                        error_positions.append(i)
+                        error_iters.append(iters[i])
+                for i, pos in enumerate(error_positions):
+                    print(f"Frame error positions (info bit index): {pos}")
+                    print(f"Corresponding decoding iterations: {error_iters[i]}")
+                    # 保存对应的帧到磁盘，用于调试，原始信息比特、接收的rr_bits_prob、解码后的比特分别保存到一个csv文件中,文件名用run_idx和pos区分.
+                    debug_dir = f'results/codelen_{CODE_LEN}/debug_frames'
+                    if not os.path.exists(debug_dir):
+                        os.makedirs(debug_dir)
+                    frame_prefix = f'run{run_idx}_frame{pos}'
+                    # 保存原始信息比特
+                    info_bits_filename = os.path.join(debug_dir, f'{frame_prefix}_info_bits.csv')
+                    np.savetxt(info_bits_filename, info_bits_T[pos, :], fmt='%d', delimiter=',')
+                    # 保存接收的rr_bits_prob
+                    rr_bits_prob_filename = os.path.join(debug_dir, f'{frame_prefix}_rr_bits_prob.csv')
+                    np.savetxt(rr_bits_prob_filename, rr_bits_prob[:, pos], fmt='%.6f', delimiter=',')
+                    # 保存解码后的比特
+                    decoded_bits_filename = os.path.join(debug_dir, f'{frame_prefix}_decoded_bits.csv')
+                    np.savetxt(decoded_bits_filename, decoded_bits_T[pos, :], fmt='%d', delimiter=',')
+                    print(f"error bit index in frame {pos}: ", np.where(decoded_bits_T[pos, :] != info_bits_T[pos, :])[0]+1)
+                    print(f"Saved debug files for run {run_idx}, frame {pos} to {debug_dir}")
+                    print("===============================================")
+                
                 # 计算误比特率(BER)和帧错误率(FER), 以decoded_bits[0, :]为1帧,及info_bits[0, :]为原始信息
                 total_bit_errors = 0
                 total_frame_errors = 0
@@ -130,11 +163,6 @@ def main():
                 BER = total_bit_errors / (n_info * k_2)
                 FER = total_frame_errors / n_info
                 print(f"Run {run_idx}, Pe={Pe}: BER={BER}, FER={FER}")
-
-                # 打印出出错的比特在 LDPC 译码时的帧的位置，以及迭代次数。
-                
-
-
                 with open(runs_filename, 'a', newline='') as f:
                     writer = csv.writer(f)
                     writer.writerow([run_idx, float(Pe), float(FER)])

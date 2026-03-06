@@ -236,7 +236,7 @@ Returns
 		for (int i = 0; i < n0; ++i) {
 			if (counts[i] == 0) {
 				for (int b = 0; b < k2; ++b) {
-					v_ptr[i * k2 + b] = 0.5;
+					v_ptr[i * k2 + b] = 0.5 + 1e-2;
 				}
 			} else {
 				for (int b = 0; b < k2; ++b) {
