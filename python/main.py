@@ -14,7 +14,7 @@ import csv
 
 CODE_PARM = 4  # i for 2^i-ary LDPC, i=1, 2, 4 for 2-ary, 4-ary, 16-ary respectively
 CODE_ARY = 2 ** CODE_PARM
-CODE_LEN = 8320
+CODE_LEN = 2048
 Parity_files_folder = f"Parity_files_{CODE_LEN}"
 def main():
     if Parity_files_folder == "Parity_files_8320":
@@ -103,6 +103,12 @@ def main():
 
                 # 计算P(b=0)
                 rr_bits_prob = 1 - voting_scores  # P(b=0)
+
+                # Break exact 0.5 ties to avoid symmetric wandering in decoding.
+                tie_mask = rr_bits_prob == 0.5
+                if np.any(tie_mask):
+                    jitter = rng.choice(np.array([-1.0, 1.0]), size=np.count_nonzero(tie_mask)) * 1e-6
+                    rr_bits_prob[tie_mask] = 0.5 + jitter
 
                 # 为rr_bits_prob加一个微小值，防止出现0或1的概率，导致LLR无穷大
                 epsilon = 0.05
