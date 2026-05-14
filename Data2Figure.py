@@ -9,7 +9,7 @@ import warnings
 
 from numpy.f2py.crackfortran import endifs
 
-class Date2Figure:
+class Data2Figure:
     warnings.filterwarnings("ignore")
     logging.getLogger().setLevel(logging.CRITICAL)
     # plt.rcParams['savefig.dpi'] = 300
@@ -277,10 +277,52 @@ class Date2Figure:
         plt.legend(fontsize=12)
         plt.savefig(Graphical_result_path, bbox_inches='tight', format='png')
         # plt.show()
+    
+    def plot_FER_vs_PE_multi_ary(result_dir, Graphical_result_path, sequencingDepth=10, innerRedundancy=114):
+        """
+        Plot FER vs Pe curves of multiple code aries (2/4/16) in one figure.
+        """
+        code_ary_list = [2, 4, 16]
+        colors = ['#EE5940', '#2093AE', '#579B85']
+        markers = ['o', 's', '^']
+
+        plt.figure(figsize=(8, 6))
+
+        for i, ary in enumerate(code_ary_list):
+            file_path = os.path.join(
+                result_dir,
+                f"FFTQSPA_DNA_Channel_{ary}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv"
+            )
+            if not os.path.exists(file_path):
+                continue
+
+            df = pd.read_csv(file_path).sort_values(by='Pe')
+            plt.semilogy(
+                df['Pe'],
+                df['FER'],
+                marker=markers[i],
+                linestyle='-',
+                color=colors[i],
+                markersize=6,
+                markerfacecolor='none',
+                label=f'{ary}-ary LDPC'
+            )
+
+        plt.xlabel('Overall error probability, $P_e$', fontsize=14)
+        plt.ylabel('Frame Error Rate (FER)', fontsize=14)
+        plt.xticks(fontsize=14)
+        plt.yticks(fontsize=14)
+        plt.grid(True, which='both', linestyle=':', linewidth=0.5)
+        plt.ylim([1e-6, 0])
+        plt.legend(fontsize=12)
+        plt.savefig(Graphical_result_path, bbox_inches='tight', format='png')
 #============================main====================================#
-sequencingDepth = 15
+sequencingDepth = 10
 innerRedundancy = 114 
-CODE_ARY = 16  # 2 for 2-ary LDPC, 4 for 4-ary LDPC， 16 for 16-ary LDPC 
-numeric_result_path = f"results/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv"
-Graphical_result_path = f"D:/Projects/FFTQSPA/results/FER_vs_Pe_{CODE_ARY}-ary_dseq{sequencingDepth}.png"
-Date2Figure.plot_FER_vs_PE(numeric_result_path, Graphical_result_path)
+CODE_LEN = 2048
+Data2Figure.plot_FER_vs_PE_multi_ary(
+    result_dir = f"results\codelen_{CODE_LEN}",
+    Graphical_result_path = f"results\codelen_{CODE_LEN}\FER_vs_PE_multi_ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.png",
+    sequencingDepth = sequencingDepth, 
+    innerRedundancy = innerRedundancy
+)

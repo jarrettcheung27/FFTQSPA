@@ -12,7 +12,7 @@ from Inner_Code_DNA_Channel_Simulation import DNAChannel
 import os
 import csv
 
-CODE_PARM = 4  # i for 2^i-ary LDPC, i=1, 2, 4 for 2-ary, 4-ary, 16-ary respectively
+CODE_PARM = 2  # i for 2^i-ary LDPC, i=1, 2, 4 for 2-ary, 4-ary, 16-ary respectively
 CODE_ARY = 2 ** CODE_PARM
 CODE_LEN = 2048
 Parity_files_folder = f"Parity_files_{CODE_LEN}"
@@ -54,11 +54,12 @@ def main():
     max_iteration = 50
     k_2 = 320  # inner code length of data bits
     # DNA channel parameters
-    # PEs = np.linspace(0.05, 0.12, 8)  # different base error rates
-    PEs = [0.08]
-    sequencingDepths = [20]  # sequencing depth list
+    # PEs = np.linspace(0.36, 0.3, 4)  # different base error rates
+    PEs = [0.304]
+
+    sequencingDepths = [10]  # sequencing depth list
     innerRedundancy = 114  # total redundancy for inner code
-    repeat_times = 50  # repeat simulation times for each sequencing depth
+    repeat_times = 1000  # repeat simulation times for each sequencing depth
 
     codec = fftqspa.BCJRQSPA(parity_filename, max_iteration, mapping_filename)
 
@@ -69,13 +70,15 @@ def main():
         os.makedirs('results')
 
     for sequencingDepth in sequencingDepths:
-        runs_filename = f'results/codelen_{CODE_LEN}/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}_runs_test.csv'
-        results_filename = f'results/codelen_{CODE_LEN}/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}_test.csv'
+        runs_filename = f'results/codelen_{CODE_LEN}/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}_runs.csv'
+        results_filename = f'results/codelen_{CODE_LEN}/FFTQSPA_DNA_Channel_{CODE_ARY}-ary_SequencingDepth{sequencingDepth}_InnerRedundancy{innerRedundancy}.csv'
 
-        with open(runs_filename, 'w', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerow(['Run', 'Pe', 'FER'])
-
+        # 如果 runs_filename 不存在，则创建并写入表头
+        if not os.path.exists(runs_filename):
+            with open(runs_filename, 'w', newline='') as f:
+                writer = csv.writer(f)
+                writer.writerow(['Run', 'Pe', 'FER'])
+        # 如果 results_filename  存在，则追加写入
         for run_idx in range(1, repeat_times + 1):
             print(f"===== SequencingDepth={sequencingDepth}, Run {run_idx}/{repeat_times} =====")
             for Pe in PEs:
@@ -126,6 +129,7 @@ def main():
                 decoded_bits = decoded_bits[sys_start:, :]  # 信息位
 
                 # Debug
+                '''
                 # 打印出出错的比特在 LDPC 译码时的帧的位置，以及迭代次数。                
                 error_positions = []
                 error_iters = []
@@ -157,7 +161,7 @@ def main():
                     print(f"error bit index in frame {pos}: ", np.where(decoded_bits_T[pos, :] != info_bits_T[pos, :])[0]+1)
                     print(f"Saved debug files for run {run_idx}, frame {pos} to {debug_dir}")
                     print("===============================================")
-                
+                '''
                 # 计算误比特率(BER)和帧错误率(FER), 以decoded_bits[0, :]为1帧,及info_bits[0, :]为原始信息
                 total_bit_errors = 0
                 total_frame_errors = 0
